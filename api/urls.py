@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
+from .views import ping_view, test_view
 
 urlpatterns = [
-    path('ai/', views.create_summary, name='create_summary')
+    path('ping/', ping_view, name='ping'),
+    path('test/', test_view, name='test'),
 ]

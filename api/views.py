@@ -1,27 +1,19 @@
-from django.http import JsonResponse, HttpResponseBadRequest
-import json
-from django.contrib.auth.models import User
-from django.views.decorators.csrf import csrf_exempt
-from .serializers import SummarySerializer
-# Create your views here.
+from django.http import JsonResponse
+from .client import ping
 
-@csrf_exempt
-def create_summary(request):
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-        except json.JSONDecodeError:
-            return HttpResponseBadRequest('Invalid JSON')
+def ping_view(request):
+    url = "http://127.0.0.1:8000/ping/"
     
-        serializer = SummarySerializer(data=data)
-        if serializer.is_valid():
-            valid_data = serializer.validated_data
-
-            return JsonResponse({
-                'data': valid_data
-            })
+    try:
+        response = ping(url)
+        if isinstance(response, dict):
+            return JsonResponse({"data":[{"model": "gpt-4o", "max_tokens":10, "message":[{ "role": "user", "content":"mention five words"}]}]})
         else:
-            return HttpResponseBadRequest('Invalid data')
-        
-    return HttpResponseBadRequest('Invalid request method')
-            
+            return JsonResponse({"error": "Unexpected response type"}, status=500)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+def test_view(request):
+    url = "http://127.0.0.1:8000/test/"
+    response = ping(url)
+    return JsonResponse({"message": "This is a test endpoint"})

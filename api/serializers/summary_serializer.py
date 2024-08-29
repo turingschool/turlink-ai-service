@@ -10,3 +10,10 @@ class SummarySerializer(serializers.Serializer):
             child=serializers.CharField()
         )
     )
+
+    def intoapi(self):
+        return {
+            "model": self.validated_data['model'],
+            "max_tokens": self.validated_data['max_tokens'],
+            "messages": self.validated_data['messages']
+        }
