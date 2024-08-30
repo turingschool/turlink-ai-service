@@ -1,1 +1,1 @@
-web: gunicorn TURLINK-AI-SERVICE:api
+web: gunicorn bolierplate.wsgi
