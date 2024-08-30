@@ -1,1 +1,1 @@
-web: gunicorn TURLINK-AI-SERVICE.wsgi
+web: gunicorn boilerplate.wsgi
