@@ -23,12 +23,23 @@ This app was designed and built with a team of X developers as part of the [Caps
 
 <details>
   <summary>Setup</summary>
+
   1. Fork and/or Clone this Repo from GitHub.
+
   2. In your terminal use `$ git clone git@github.com:turingschool/turlink-ai-service.git`.
+
   3. Create a virtual enviorment with `$ python -m venv myenv`
+
   4. Activate your virtual enviorment with `$ source myenv/bin/activate`
+
   5. Change into the cloned directory using `$ cd example`.
-  
+
+  6. In your virtual enviorment use `$ pip install django`.
+
+  7. In your virtual enviorment use `$ pip install djangorestframework`.
+
+  8. In your virtual enviorment use `$ pip install requests`.
+
 </details>
 
 <details>
@@ -67,8 +78,7 @@ Body:
 
 ```json
 {
-  "input": "hello world",
-  "model": "gpt-4o"
+  "link": "www.example.com"
 }
 ```
 
@@ -76,18 +86,10 @@ Response: `status: 201`
 
 ```json
 {
-  "data": [
-    {
-      "model": "gpt-4o",
-      "max_tokens": 100,
-      "message": [
-        {
-          "role": "assistant",
-          "content": "AI genarated text"
-        }
-      ]
-    }
-  ]
+  "data": {
+    "link": "www.example.com",
+    "summary": "1. example 1\n2. example 2\n3. example 3"
+  }
 }
 ```
 </details>
@@ -108,18 +110,10 @@ Response: `status: 200`
 
 ```json
 {
-  "data": [
-    {
-      "model": "gpt-4o",
-      "max_tokens": 10,
-      "message": [
-        {
-          "role": "assistant",
-          "content": "1. example 1\n2. example 2\n3. example 3"
-        }
-      ]
-    }
-  ]
+  "data": {
+    "link": "www.example.com",
+    "summary": "1. example 1\n2. example 2\n3. example 3"
+  }
 }
 ```
 </details>

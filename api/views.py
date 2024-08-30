@@ -7,7 +7,7 @@ def ping_view(request):
     try:
         response = ping(url)
         if isinstance(response, dict):
-            return JsonResponse({"data":[{"model": "gpt-4o", "max_tokens":10, "message":[{ "role": "assistant", "content":"1. example 1\n2. example 2\n3. example 3"}]}]}, status=200)
+            return JsonResponse({"data": {"link": "www.example.com", "summary": "1. example 1\n2. example 2\n3. example 3"}}, status=200)
         else:
             return JsonResponse({"error": "Unexpected response type"}, status=500)
     except Exception as e:
