@@ -113,8 +113,8 @@ Response: `status: 200`
       "max_tokens": 10,
       "message": [
         {
-          "role": "user",
-          "content": "mention five words"
+          "role": "assistant",
+          "content": "1. example 1\n2. example 2\n3. example 3"
         }
       ]
     }
