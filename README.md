@@ -6,7 +6,8 @@
 - [External APIs and Services](#external-apis-and-services)
 - [End Points](#end-points)
 - [Contributors](#contributors)
-- [FE Repo](https://turlink-fe-da6763e5d8d6.herokuapp.com/)
+- [FE Repo](https://github.com/turingschool/turlink-fe)
+- [BE Repo](https://github.com/turingschool/turlink-be)
 - [Deployment](https://nameless-garden-14218-de5663d17d61.herokuapp.com/)
 
 ## Getting Started
@@ -16,7 +17,7 @@
 
 ## Project Description
 
-Turlink AI Service is a micro service of Turlink! This micro service is built in Python 3.12.5 and consumes the openAI API. There is one exposed endpoint that allows for each shorten link to receive a brief AI generated description in a three bullet point format.  
+Turlink AI Service is a micro service of [Turlink](https://turlink-fe-da6763e5d8d6.herokuapp.com/)! This micro service is built in Python 3.12.5 and consumes the openAI API. There is one exposed endpoint that allows for each shorten link to receive a brief AI generated description in a three bullet point format.  
 
 This app was designed and built with a team of X developers as part of the [Capstone project](https://mod4.turing.edu/projects/capstone/), from Turing School of Software and Design.
 
@@ -44,7 +45,7 @@ This app was designed and built with a team of X developers as part of the [Caps
 
 ## External APIs and Services
 #### OpenAI API
-  - In our application, we utilize OpenAI API to produce AI generated prompts for [Turlink](https://FE-Depolyment). We're able to acomplish this by exposing the openAI API [chat completions](https://platform.openai.com/docs/api-reference/chat/create) endpoint. Lastly for better readability we format the prompts to be described in 3 bullet points.
+  - In our application, we utilize OpenAI API to produce AI generated prompts for [Turlink](https://turlink-fe-da6763e5d8d6.herokuapp.com/). We're able to acomplish this by exposing the openAI API [chat completions](https://platform.openai.com/docs/api-reference/chat/create) endpoint. Lastly for better readability we format the prompts to be described in 3 bullet points.
 
   - [OpenAI API Chat Completion Documentation](https://platform.openai.com/docs/guides/chat-completions)
 
