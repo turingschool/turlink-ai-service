@@ -1,0 +1,1 @@
+web: gunicorn TURLINK-AI-SERVICE:api
