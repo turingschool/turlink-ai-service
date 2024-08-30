@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from .client import ping
+import requests
 
 def ping_view(request):
     url = "http://127.0.0.1:8000/ping/"
