@@ -12,19 +12,15 @@ class TestClient(unittest.TestCase):
         mock_response = MagicMock()
         mock_response.status_code = 200
         
-        link = "example link or beautiful_soup html files"
-        system_prompt = f"""You are a a helpful assistant.
-        Summarize the following content: {link}.
-        Use 3 bullet points."""
+        system_prompt = "1. example 1\n2. example 2\n3. example 3"
 
-        mock_response.json.return_value = { "data": [{"messages": { "role": "user", "content": system_prompt}}] }
+        mock_response.json.return_value = { "data": {"link": "www.example.com", "summary": system_prompt} }
         mock_requests.get.return_value = mock_response
 
         response = mock_response.json()
     
-        self.assertEqual(response["data"][0]["messages"]["role"], "user")
-        self.assertEqual(response["data"][0]["messages"]["content"], system_prompt)
-
+        self.assertEqual(response["data"]["link"], "www.example.com")
+        self.assertEqual(response["data"]["summary"], system_prompt)
 
 if __name__ == "__main__":
     unittest.main()
