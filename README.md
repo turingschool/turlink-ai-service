@@ -50,7 +50,7 @@ This app was designed and built with a team of X developers as part of the [Caps
 
 
 ## End Points
-### User
+### OpenAI
 <details>
 <summary> Create One Link Description </summary>
 
