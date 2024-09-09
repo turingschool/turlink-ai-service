@@ -2,7 +2,7 @@ import requests
 
 def ping(url):
     try:
-        response = requests.get(url)
+        response = requests.post(url)
         if response.status_code == 200:
             return response.json()  # Assuming the URL returns JSON
         else:

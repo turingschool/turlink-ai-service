@@ -1,6 +1,20 @@
 from django.http import JsonResponse
 from .client import ping
 import requests
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from bs4 import BeautifulSoup
+
+class HTMLParserView(APIView):
+    def post(self, request, *args, **kwargs):
+        html_content = request.data.get('html', '')
+        soup = BeautifulSoup(html_content, 'html.parser')
+        
+        # Extracting all paragraph texts
+        paragraphs = [p.text for p in soup.find_all('p')]
+        
+        return Response({"paragraphs": paragraphs})
+
 
 def ping_view(request):
     url = "http://127.0.0.1:8000/ping/"
