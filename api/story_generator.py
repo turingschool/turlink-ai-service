@@ -10,14 +10,14 @@ def generate_story(words):
     # Format and return the response
     return format_response(response)
 
-def get_short_story(words):
+def get_short_story(body):
     # Construct the system prompt
-    system_prompt = f"""You are a a helpful assistant.
-    Summarize the following content: {words}.
+    system_prompt = f"""You are a helpful assistant.
+    Summarize the following content: {body}.
     Use 3 bullet points."""
     # Make the API call
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4.0-mini",
         messages=[{
             "role": "user",
             "content": system_prompt
