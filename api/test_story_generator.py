@@ -1,10 +1,8 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from django.test import TestCase
-from unittest.mock import patch
 from story_generator import generate_story, format_response, get_short_story
 
-class StoryGeneratorTest(TestCase):
+class StoryGeneratorTest(unittest.TestCase):
     @patch('story_generator.client.chat.completions.create')
     def test_generate_story(self, mock_openai_api):
         # Set up the mock response from the OpenAI API
@@ -28,7 +26,7 @@ class StoryGeneratorTest(TestCase):
 
         # Check if the OpenAI API was called with the correct parameters
         mock_openai_api.assert_called_once_with(
-            model="gpt-4.0-mini",
+            model="gpt-4o-mini",
             messages=[{
                 "role": "user",
                 "content": f"""You are a helpful assistant.

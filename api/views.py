@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from .client import ping
+from .story_generator import generate_story
 import requests
 
 def ping_view(request):
@@ -15,6 +16,18 @@ def ping_view(request):
         return JsonResponse({"error": str(e)}, status=500)
 
 def test_view(request):
-    url = "http://127.0.0.1:8000/test/"
+    url = "http://127.0.0.1:8000/test"
     response = ping(url)
     return JsonResponse({"message": "This is a test endpoint"})
+
+def openai_view(request):
+    url = "http://127.0.0.1:8000/openai"
+    
+    try:
+        response = generate_story(url)
+        if isinstance(response, dict):
+            return JsonResponse({"data": { "choices": [{"message": {"content" : "1. example 1\n2. example 2\n3. example 3"}}]}}, status=200)
+        else:
+            return JsonResponse({"error": "Unexpected response type"}, status=500)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)

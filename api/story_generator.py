@@ -17,7 +17,7 @@ def get_short_story(body):
     Use 3 bullet points."""
     # Make the API call
     response = client.chat.completions.create(
-        model="gpt-4.0-mini",
+        model="gpt-4o-mini",
         messages=[{
             "role": "user",
             "content": system_prompt
