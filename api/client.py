@@ -9,16 +9,6 @@ def ping(url):
             return {"error": "Ping failed", "status_code": response.status_code}
     except requests.RequestException as e:
         return {"error": str(e)}
-
-def post(url):
-    try:
-        response = requests.post(url)
-        if response.status_code == 201:
-            return response.json()
-        else:
-            return {"error": "Post failed", "status_code": response.status_code}
-    except requests.RequestException as e:
-        return {"error": str(e)}
     
 def get_link(url):
     try:
