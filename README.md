@@ -19,7 +19,7 @@
 
 Turlink AI Service is a micro service of [Turlink](https://turlink-fe-da6763e5d8d6.herokuapp.com/)! This micro service is built in Python 3.12.5 and consumes the openAI API. There is one exposed endpoint that allows for each shorten link to receive a brief AI generated description in a three bullet point format.  
 
-This app was designed and built with a team of X developers as part of the [Capstone project](https://mod4.turing.edu/projects/capstone/), from Turing School of Software and Design.
+[Turlink](https://turlink-fe-da6763e5d8d6.herokuapp.com/) was designed and built with a team of 8 developers as part of the [Capstone project](https://mod4.turing.edu/projects/capstone/) from Turing School of Software and Design. The Turlink AI Service was built with 2 Backend devlopers from the Capstone project.
 
 <details>
   <summary>Setup</summary>
