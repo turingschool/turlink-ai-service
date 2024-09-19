@@ -69,7 +69,7 @@ Turlink AI Service is a micro service of [Turlink](https://turlink-fe-da6763e5d8
 Request:
 
 ```http
-POST /api/v1/ai/
+POST /api/v1/openai
 Content-Type: application/json
 Accept: application/json
 ```
@@ -101,7 +101,7 @@ Response: `status: 201`
 Request:
 
 ```http
-GET /api/v1/ping/
+GET /api/v1/ping
 Content-Type: application/json
 Accept: application/json
 ```
