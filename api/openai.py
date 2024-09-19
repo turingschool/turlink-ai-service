@@ -44,3 +44,4 @@ def generate_story_from_openai(html_content):
 
   except requests.RequestException as e:
     raise Exception(f"OpenAI API request failed: {str(e)}")
+  
