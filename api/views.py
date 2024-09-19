@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .client import ping
 from .openai import generate_story_from_openai  # Import the function
+import json
 
 @api_view(['POST'])
 def generate_story(request):
@@ -11,15 +12,24 @@ def generate_story(request):
     This view accepts a POST request with 'html_content' in the body
     and returns a summarized story using OpenAI API.
     """
-    html_content = request.data.get('html_content', '')
+    body = json.loads(request.body)
+    html_content = body.get('link', '')
 
     if not html_content:
-        return Response({"error": "html_content is required"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "link is required"}, status=status.HTTP_400_BAD_REQUEST)
 
     try:
         # Call the function from openai_service to generate the story
         story = generate_story_from_openai(html_content)
-        return Response({"story": story}, status=status.HTTP_200_OK)
+
+        response_data = {
+            "data": {
+                "link": html_content,
+                "summary": story
+            }
+        }
+
+        return JsonResponse(response_data, status=status.HTTP_200_OK)
 
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -28,7 +28,7 @@ def generate_story_from_openai(html_content):
       },
       {
         "role": "user",
-        "content": "Use 3 bullet points."
+        "content": "Use 3 numbered bullet points."
       }
     ]
   }
